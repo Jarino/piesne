@@ -33,7 +33,7 @@
 
 <!-- REGIONY & DRUH -->
 <div class="row">
-
+<div class="span12">
   <b>Regióny:</b>
   <% @song.regions.each do |r| %>
     <%= link_to r.name, r %>,
@@ -46,7 +46,10 @@
     <%= submit_tag 'Pridaj region', :class => 'btn'  %></p>
   <% end %>
   </div>
-
+</div>
+</div>
+<div class="row offset-top-small">
+  <div class="span12">
   <div id="kind"><% if !@song.kind %>
     <p><b>Druh: </b><a href="#" class="alert" id="add_kind">Pieseň nebola zatiaľ nikam zaradená, pomôžte nám tým, že spravíte robotu za nás!</a></p>
     <div id="add_kind_form">
@@ -60,6 +63,7 @@
       <b>Druh: </b> <%= link_to @song.kind.name, @song.kind %>
     </p>
     <% end %>
+  </div>
   </div>
 </div>
 
