@@ -33,7 +33,7 @@
 
 <!-- REGIONY & DRUH -->
 <div class="row">
-  <p>
+
   <b>Regióny:</b>
   <% @song.regions.each do |r| %>
     <%= link_to r.name, r %>,
@@ -59,7 +59,8 @@
     <p>
       <b>Druh: </b> <%= link_to @song.kind.name, @song.kind %>
     </p>
-    <% end %></div>
+    <% end %>
+  </div>
 </div>
 
 <!-- SLOHY -->

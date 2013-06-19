@@ -3,7 +3,7 @@
 	<li><pre><%= v.text %></pre>
 		<% if v.user != nil %>
 			<small>pridal <%= v.user.first_name %> <%= v.user.last_name %>
-				<% if v.user.id == current_user.id %>
+				<% if signed_in? && v.user.id == current_user.id %>
 				<%= link_to '(upraviť)', edit_verse_url(v.id) %>
 				<%= link_to '(zmazať)', verse_path(v, :song_id => @song.id), :method => :delete, :confirm => "Určite?" %>
 				<% end  %>
