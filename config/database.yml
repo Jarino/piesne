@@ -24,9 +24,9 @@ test:
   password:
 
 production:
-  adapter: postgresql
+    adapter: postgresql
   encoding: unicode
-  database: nadsenci
+  database: ddfidgg74mrbm7
   pool: 5
-  username: jardo
-  password:
+  username: tuhveppzegvtwl
+  password: il_80PxYAvVrOsuMVhiEgUBMMu
