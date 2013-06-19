@@ -1,0 +1,9 @@
+<h2>Výsledky vyhľadávania v regióne <%= @region_name %></h2>
+
+<ul>
+<% @songs.each do |s|  %>
+
+<li><%= link_to s.title, s %></li>
+
+<% end %>
+</ul>

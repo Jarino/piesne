@@ -1,0 +1,77 @@
+<h1>Vitajte!</h1>
+<p>Vítam Vás na stránkach otvorenej databázy slovenských ľudových piesní, ktorej cieľom je jednoduché a ľahko dostupné uchovávanie nášho spoločného kultúrneho dedičstva, a to hlavne ľudových piesní.</p>
+<p>Ak viete v akom regióne sa pieseň nachádza, môžete využiť folkórnu mapu. Ak región nepoznáte alebo chcete hľadať podľa názvu, je k dispozícií rýchle vyhľadávanie</p>
+<p>Na interakciu s archívom nie je potrebná žiadna registrácia, všetko je otvorené a prístupné. Ak však chcete zanechať pri Vami pridaných materiáloch aj Vaše meno, táto možnosť tu je. Registrácia je rýchla a jednoduchá.</p>
+
+
+
+<div class="row">
+   <div class="span8"> 
+    <h2>Folklórna mapa</h2>
+    <p class="desc"> Kliknite na región z ktorého chcete zobraziť piesne</p>
+    <%= image_tag("slovakia_map.png", :alt => "Folklorna mapa", :usemap => "#map") %>
+   </div>
+   <div class="span4">
+        <h2>Rýchle vyhľadávanie</h2>
+        <p class="desc">Podľa názvu piesne</p>
+        <p>
+            <%= form_tag('/search/result') do %>    
+            <%= text_field_tag 'title' %>
+        </p>
+            <%= submit_tag 'Hľadaj Dunčo', :class => 'btn btn-large' %>
+        
+    
+        <% end %>
+        <p id="error"><%= notice %></p>
+    </div>
+</div>
+<map name="map">
+    <% @regions.each do |r|  %>
+    <area id = "<%= r.id %>" href="<%= region_url(r.id) %>" shape="poly" coords="<%= r.coords %>" />
+    <% end %>
+</map>
+
+
+
+
+
+<script type="text/javascript">
+$(function()
+{
+    var regions = [
+    <% @regions.each do |r| %>
+        "<%= r.name %>",
+    <% end  %>
+    ]
+
+    var descriptions = [
+    <% @regions.each do |r| %>
+        "<%= r.description %>",
+    <% end %>
+    ]
+    $('img').mapster({
+    fillOpacity: 0.5,
+    singeSelect: 'true',
+    clickNavigate: true,
+    render_highlight: {
+        fillColor: '2aff00',
+        altImage: "<%= image_path('slovakia_map_2.png') %>"
+
+    },
+    onMouseover: function(e)
+    {
+        console.log(e.key);
+        if (descriptions[e.key - 1] == "")
+            $(".text").html("<h3>" + regions[e.key-1]  + "</h3><p class=\"alert\">K regiónu zatiaľ nebol pridaný žiadny popis</p>");
+        else
+            $(".text").html("<h3>" + regions[e.key-1]  + "</h3><p>" + descriptions[e.key-1] + "</p>");
+    },
+    onMouseout: function(e)
+    {
+        $(".text").html("");
+    },
+    fadeInterval: 5,
+    mapKey: 'id',
+    });
+})
+</script>

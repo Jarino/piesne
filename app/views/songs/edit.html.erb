@@ -1,0 +1,44 @@
+<h1>Uprava pesničky</h1>
+
+<%= form_for(@song) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!-- jednotlive polia vo formulari -->
+
+  <div class="field">
+    Meno pesničky<br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">    
+    <%= f.fields_for :verses do |v| %>
+      <%= v.label :text %><br />
+      <%= v.text_area :text %>
+    <% end %>
+  </div>
+  <div class="field">
+    Región<br />
+    <% i = 0 %>
+    <%= f.fields_for :regions do |r| %>
+    <p><%= @song.regions[i].name %> zmenit na <%= r.collection_select :name, @regions, :name, :name, { :selected => @song.regions[i].name } %></p>
+    <% i = i+1  %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Uprav', :class => 'btn btn-large' %>
+  </div>
+
+
+
+<% end %>
+
+<%= link_to 'Naspäť', songs_path %>

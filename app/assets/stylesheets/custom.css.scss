@@ -1,0 +1,56 @@
+@import "bootstrap";
+
+h1, h2, h3, h4, h5
+{
+	text-shadow: 2px 2px #ccc;
+}
+
+.offset-top
+{
+	margin-top: 60px;
+}
+
+body
+{
+	background-image: url(wavegrid.png);
+}
+
+.container
+{
+	background-color: white;
+	padding: 0 30px 0 30px;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+}
+
+.desc
+{
+	font-style: italic;
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+
+.header-image
+{
+	height: 150px;
+	border-radius: 180px;
+}
+
+.fixed-size
+{
+	display: inline-block;
+	width: 120px;
+}
+
+.offset-top-small
+{
+	margin-top: 30px;
+}
+
+.header
+{
+	background-image: url(slovensko.jpg);
+	background-repeat: no-repeat;
+	background-position: 24px 0;
+}

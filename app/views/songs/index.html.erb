@@ -1,0 +1,33 @@
+<h1>Listing songs</h1>
+
+<!-- <p>
+  Stranky na sparsovanie:
+  <ul>
+    <li><a href="http://projekty.infovek.sk/pesnicky/html/zoznam.htm">http://projekty.infovek.sk/pesnicky/html/zoznam.htm</a></li>
+    <li><a href="http://www.pekarikova.szm.com/fantazia6.html">http://www.pekarikova.szm.com/fantazia6.html</a></li>
+    <li><a href="http://www.videorohal.com/texty">http://www.videorohal.com/texty</a></li>
+    <li><a href="http://pesnicky.orava.sk/index.php/piesne?limit=50">http://pesnicky.orava.sk/index.php/piesne?limit=50</a></li>
+  </ul>
+</p>
+ -->
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @songs.each do |song| %>
+  <tr>
+    <td><%= song.title %></td>
+    <td><%= link_to 'Show', song %></td>
+    <td><%= link_to 'Edit', edit_song_path(song) %></td>
+    <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Song', new_song_path %>

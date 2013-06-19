@@ -1,0 +1,13 @@
+<h3>Pridaj popis k regiónu <%= @region.name %>:</h3>
+
+
+<div class="row">
+	<div class="span12">
+<%= form_for(@region) do |f| %>
+	<p><%= f.text_area :description, :class => "input-xxlarge", :rows => 5 %></p>
+	<p><%= f.submit 'Pridaj', :class => 'btn btn-large btn-info'  %><p/>
+<% end %>
+</div>
+</div>
+
+<%= link_to "Naspäť", @region %>

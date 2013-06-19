@@ -1,0 +1,93 @@
+<div class="row span12">
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<% provide(:title, @user.first_name) %>
+<p>Kontaktný email: <%= @user.email %></p>
+<% if signed_in? && him?(@user.id) && editor?(current_user) %>
+    <ul class="nav nav-tabs">
+        <li class="active"><a>Prehľad</a></li>
+        <li><%= link_to "Nevybavené hlásenia", unchecked_path(:id => @user.id) %></li>
+        <li><%= link_to "Vybavené hlásenia", checked_path(:id => @user.id) %></li>
+    </ul>
+<% else %>
+    <% if editor?(@user) %>
+    Editor
+    <% end %>
+<% end %>
+</div>
+
+
+
+<div class="row offset-top">
+
+
+<div class="span6">
+<h3>Moje obľúbene pesníčky <small>(<%= @user.favourites.count %>)</small></h3>
+<ul>
+<% @user.favourites.each do |s| %>
+
+<li>
+  <p>
+  	<span class="remove-link"><%= link_to s.song.title, s.song %> 
+    <% if signed_in? %>
+    <% if current_user.id == @user.id %>
+    <%= form_tag('remove_favourite') do %>
+    <%= hidden_field_tag 'fav_id', s.id %>
+    <span class="remove"><%= submit_tag 'Zmazať' %></span>
+    </span>
+    <% end %>
+    <% end %>
+    <% end %>
+</p>
+</li>
+
+<% end %>
+</ul>
+</div>
+
+<div class="span6">
+<h3>Piesne ktoré som pridal <small>(<%= @user.songs.count %>)</small></h3>
+<% if @user.songs.first == nil %>
+<p class="alert">Zatial som sem pridal velke gulove</p>
+<% else %>
+<ul>
+<% @user.songs.each do |s| %>
+	<li><%= link_to s.title, s %></li>
+<% end %>
+</ul>
+<% end %>
+</div>
+
+
+</div>
+
+<div class="row">
+<div class="span6">
+<%= will_paginate @verses %>
+<h3 class="offset-top">Slohy ktoré som pridal <small>(<%= @user.verses.count %>)</small></h3>
+<ul>
+<% @verses.each do |v| %>
+
+<li><pre><%= v.text %></pre><small>Pieseň: <%= link_to v.song.title, v.song %></small></li><br>
+
+<% end %>
+</ul>
+</div>
+
+<div class="span6">
+<h3 class="offset-top">Linky k piesnam ktore som pridal <small>(<%= @user.links.count %>)</small></h3>
+<ul>
+
+<% @user.links.each do |l| %>
+	<li><a href="<%= l.link %>"><%= l.link %></a> k piesni <%= link_to l.song.title, l.song %> <br> <small><%= l.description %></small><br>
+    <% if signed_in? %>
+    <% if current_user.id == @user.id %>
+		<%= link_to "Upraviť", edit_link_url(l.id) %> <%= link_to "Zmazať", l, method: :delete, data: { confirm: 'Are you sure?' } %>		
+    <% end %>
+    <% end %>
+	</li>
+	<br>
+<% end %>
+
+</ul>
+</div>
+</div>

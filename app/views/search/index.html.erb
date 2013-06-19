@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="span6">
+		<p>Cieľom aplikácie je uľahčiť vyhľadávanie a uchovávanie textov slovenských ľudových piesní a dodatočných materiálov k nim. Základ teda tvoria texty (verše) k jednotlivým piesňam. Okrem samotných veršov je možné pridávať odkazy na materiály súvisiace s danou piesňou. Prípadne ak chýba región alebo druh, tak tieto údaje doplniť.</p>
+		<p>Korektnosľ materálov zaručujú editorovia, ktorý aj príjmajú hlásenia na nevhodný obsah a tieto hlásenia prešetrujú.</p>
+		<p>Táto aplikácia vznikala v rámci predmetu Výskumne orientovaný seminár II na STU FIIT</p>
+		<p>Autor Jaroslav Loebl, jaroslavloebl@gmail.com</p>
+	</div>
+
+
+
+	<div class="span6"><h3>Najaktívnejší prispievatelia</h3>
+		<ol>
+			<% @stats.zip(@users_counts).each do |s, u| %>
+			<li><%= link_to s['first_name'] + " " + s['last_name'], user_path(s['id']) %>, počet príspevkov <%= s['sum'] %> (linky: <%= u[:links] %>, slohy: <%= u[:verses] %>, piesne: <%= u[:songs] %>)</li>
+			<% end %>	
+		</ol></div>
+</div>

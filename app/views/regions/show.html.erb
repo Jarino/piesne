@@ -1,0 +1,35 @@
+<div class="row span12">
+	<h1><%= @region.name %></h1>
+</div>
+
+<div class="row span12">
+<% if @region.description == nil %>
+	<%= link_to "K regiónu ešte nebol pridaný žiadny popis, pomôžte nám tým, že spravíte robotu za nás", edit_region_path(@region.id), :class => "alert" %>
+<% else %>
+	<%= @region.description %>
+	<p><%= link_to "Upraviť popis regiónu", edit_region_path(@region.id) %></p>
+<% end %>
+</div>
+
+<div class="row span12">
+	<h3>Vyhľadávanie v rámci regiónu</h3>
+	<%= form_tag('search', :class => "form-search") %>
+	<%= text_field_tag 'title' %>
+	<%= hidden_field_tag 'region_id', @region.id  %>
+	<%= submit_tag 'Hladaj dunco', :class => 'btn' %>
+</div>
+
+<div class="row span12 offset-top">
+<p>Pesničky z oblasti <b><%= @region.name %></b></p>
+</div>
+
+<div class="row"><hr></div>
+<div class="row span12">
+	<%= will_paginate @occur %>
+</div>
+
+<div class="row span 12">
+	<% @occur.each do |a| %>
+	<p><%= link_to a.title, a %></p>
+	<% end %>
+</div>

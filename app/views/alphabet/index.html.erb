@@ -1,0 +1,8 @@
+<h1>abecedny zoznam</h1>
+<p>
+<% @list.each do |l| %>
+
+<%= link_to( l.letter, letter_url(:let => l.letter)) %>
+
+<% end %>
+</p>

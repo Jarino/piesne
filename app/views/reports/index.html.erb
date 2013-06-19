@@ -1,0 +1,42 @@
+<h1>Nahlásenie obsahu</h1>
+<p>K piesni <%= @song.title %> </p>
+
+
+<%= form_for(@report, :url => reports_create_path) do |f| %>
+
+<div class="row offset-top">
+
+
+<div class="span4">
+<label class="radio"><%= f.radio_button(:report_type, 1) %> Vulgárny, alebo inak urážajúci obsah</label>
+
+<label class="radio"><%= f.radio_button(:report_type, 2) %>
+Nesprávne slová v niektorej zo slôh</label>
+
+<label class="radio"><%= f.radio_button(:report_type, 3) %>
+Link nesúvisí s piesňou/nevhodný link</label>
+
+<label class="radio"><%= f.radio_button(:report_type, 4) %>
+Pieseň je zaradená do zlého regiónu/druhu</label>
+
+</div>
+
+<div class="span5 last">
+<%= label_tag(:description, "Čím podrobnejšie popísaný problém, tým rýchlejšie sa nám ho podarí odstrániť") %>
+<%= f.text_area(:description, :value => "Sem pridajte podrobbný popis", :rows => 5) %>
+</div>
+
+<%= f.hidden_field(:song_id, :value => @song.id) %>
+
+</div>
+
+<div class="row">
+<div class="span12"><%= f.submit("Odolsať hlásenie", :class => 'btn btn-primary btn-large') %>
+</div>
+</div>
+
+<div class="row offset-top">
+	<div class="span12"><%= link_to 'Návrat', @song %></div>
+</div>
+
+<% end %>

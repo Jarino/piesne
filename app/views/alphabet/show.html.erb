@@ -1,0 +1,17 @@
+<div class="row span12"><h1>abecedny zoznam</h1></div>
+
+
+<div class="row span12">
+<% @list.each do |l| %>
+
+<%= link_to( l.letter, letter_url(:let => l.letter)) %>
+
+<% end %>
+</div>
+
+<div class="row span12 offset-top">
+<%= will_paginate @songs %>
+<% @songs.each do |s| %>
+<p><%= link_to( s.title, s ) %></p>
+<% end %>
+</div>

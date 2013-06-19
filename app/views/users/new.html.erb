@@ -1,0 +1,26 @@
+<h1>Zaregistruj sa</h1>
+<p>poviem to okolo nebudem chodit okolo horucej kase, lubim jointy</p>
+
+<%= form_for(@user) do |f| %>
+	
+	<%= render 'shared/error_messages' %>
+
+
+ <%= f.label :first_name %>
+ <%= f.text_field :first_name %>
+
+ <%= f.label :last_name %>
+ <%= f.text_field :last_name %>
+
+ <%= f.label :email %>
+ <%= f.text_field :email %>
+
+ <%= f.label :password %>
+ <%= f.password_field :password %>
+
+ <%= f.label :password_confirmation, "Potvrdenie hesla" %>
+ <%= f.password_field :password_confirmation %>
+
+ <p><%= f.submit "Zaregistruj", class: "btn btn-large btn-primary" %></p>
+
+<% end %>

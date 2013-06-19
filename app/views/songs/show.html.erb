@@ -1,0 +1,251 @@
+<% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% if @song == nil %>
+<h2>Pesnička nebol nájdená</h2>
+<% else %>
+
+
+<div>
+<p>
+  <h1>
+  	<%= @song.title %>
+  	<small><% if signed_in? %><% if current_user.id == 
+      @song.user_id  %><%= link_to 'Uprav', edit_song_path(@song) %><% end %><% end  %></small>
+  </h1>
+  <p><% if @song.user != nil %>Pridal <%= link_to @song.user.first_name + " " + @song.user.last_name, @song.user %> <% end %></p>
+
+
+  
+<% if signed_in? %>
+  <% if favourite? %>
+    Vasa oblubena
+  <% else %>
+    <%= form_tag('/users/add_favourite') do %>
+    <%= hidden_field_tag 'song_id', params[:id] %>
+    <%= submit_tag 'pridaj k oblubenym' %>
+    <% end %>
+  <% end %>
+<% end %>
+
+</div>
+
+<!-- REGIONY & DRUH -->
+<div class="row">
+  <p>
+  <b>Regióny:</b>
+  <% @song.regions.each do |r| %>
+    <%= link_to r.name, r %>,
+  <% end %>
+  <button type="button" class="btn btn-info btn-small" id="add_region_button">Pridaj región</button>
+  <div id="add_region_form">
+    <%= form_tag('add_region') do %>
+    <p><%= hidden_field_tag 'song_id', params[:id] %></p>
+    <p class="form-search"><%= select_tag "region", options_from_collection_for_select(@regions, "id", 'name') %>
+    <%= submit_tag 'Pridaj region', :class => 'btn'  %></p>
+  <% end %>
+  </div>
+
+  <div id="kind"><% if !@song.kind %>
+    <p><b>Druh: </b><a href="#" class="alert" id="add_kind">Pieseň nebola zatiaľ nikam zaradená, pomôžte nám tým, že spravíte robotu za nás!</a></p>
+    <div id="add_kind_form">
+      <%= form_tag('add_kind') do |f| %>
+        <%= hidden_field_tag 'song_id', params[:id] %>
+        <p class="form-search"><%= select_tag "kind", options_from_collection_for_select(@kinds, "id", 'name') %> <%= submit_tag 'Zarad do druhu', :class => 'btn' %></p>
+      <% end %>
+    </div>
+    <% else %>
+    <p>
+      <b>Druh: </b> <%= link_to @song.kind.name, @song.kind %>
+    </p>
+    <% end %></div>
+</div>
+
+<!-- SLOHY -->
+<hr>
+<div class="row">
+<div class="span6">
+<div class="row"><%= render 'verses' %></div>
+<div class="row offset-top"> 
+<!-- LINKY -->
+
+<ul>
+ <% @song.links.each do |l| %>
+<li>
+  <p><%= l.description %></p>
+  <p><%= raw(youtube_embed(l.link)) %></a></p>
+  <% if l.user != nil %>
+  <small> pridal <%= link_to(l.user.first_name + " " + l.user.last_name, l.user) %> 
+  <% end %>
+  <% if signed_in? && l.user_id != nil %>
+    <% if current_user.id == l.user.id %>
+      (<%= link_to "Upraviť", l %>)
+    <% end %>
+  <% end %>
+  </small>
+</li>
+<hr>
+ <% end %>
+</ul>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="span5 offset1">
+
+  <ul class="nav nav-tabs">
+      <li><a id="add_verse">Pridaj slohu</a></li>
+      <li><a id="add_link">Pridaj link</a></li>
+  </ul>
+
+  <div id="add_text">
+    Poznáte ďalšiu slohu k tejto pesničke? Videli ste niekde inde materiál súvisiaci s piesňou? Tu môžete pridať ďalšiu slohu alebo odkaz.
+  </div>
+
+  <div id="verse_form">
+    <%= form_tag('/verses/create', :remote => true) do %>
+    <%= text_area_tag 'verse', "",:class => 'input-xlarge' %>
+    <%= hidden_field_tag 'song_id', params[:id] %>
+    <% if signed_in? %>
+    <%= hidden_field_tag 'user_id', current_user.id %>
+    <% end %>
+    <br><%= submit_tag 'Pridaj slohu', :class => 'btn btn-info' %>
+    <% end %>
+  </div>
+  <hr>
+  <div id="link_form">
+    <%= form_for(@link) do |f| %>
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% @link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Odkaz<br />
+    <%= f.text_field :link, :class => 'input-xlarge' %>
+  </div>
+  <div class="field">
+    Popis odkazu<br />
+    <%= f.text_area :description, :rows => 3, :class => 'input-xlarge' %>
+  </div>
+    <%= f.hidden_field :song_id, :value => @song.id %>
+    <% if signed_in? %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <% end %>
+  <div class="actions">
+    <%= f.submit 'Pridaj link', :class => 'btn btn-info' %>
+  </div>
+<% end %>
+  </div>
+</div>
+</div>
+
+
+<!-- pridavanie veciciek -->
+
+
+
+
+
+<% end %>
+
+<hr>
+<%= link_to 'Naspäť', root_path %> | <%= link_to 'Nahlásiť zlý/nevhodný obsah', report_url(:id => @song.id) %>
+
+<script type="text/javascript">
+$(function()
+{
+  var region_form = $('#add_region_form');
+  var kind_form = $('#add_kind_form');
+  var verse_form = $('#verse_form');
+  var link_form = $('#link_form');
+
+  region_form.hide();
+  kind_form.hide();
+  verse_form.hide();
+  link_form.hide();
+
+  $('#add_region_button').click(function()
+    {
+      if (region_form.is(":visible"))
+      {
+        $('#add_region_button').html("Pridaj región");
+        region_form.fadeOut();
+      }
+      else
+      {
+        $('#add_region_button').html("Skry formulár");
+        region_form.fadeIn();
+      }
+    });
+
+  $('#add_kind').click(function()
+  {
+    if (kind_form.is(":visible"))
+    {
+      $('#add_kind_button').html("Zaraď do druhu");
+      kind_form.fadeOut();
+    }
+    else
+    {
+      $('#add_kind_button').html("Skry formulár");
+      kind_form.fadeIn();
+    }
+  });
+
+  $('#add_verse').click(function()
+  {
+    if ($('#add_text').is(":visible"))
+    {
+      $('#add_text').hide();
+    }
+
+    if (link_form.is(":visible"))
+    {
+      link_form.hide();
+      $('#add_link').parent().removeClass("active");
+    }
+
+    if (!verse_form.is(":visible"))
+    {
+      verse_form.fadeIn();
+      $(this).parent().attr("class", "active");
+    }
+  });
+
+  $('#add_link').click(function()
+  {
+    if ($('#add_text').is(":visible"))
+    {
+      $('#add_text').hide();
+    }
+
+    if (verse_form.is(":visible"))
+    {
+      verse_form.hide();
+      $('#add_verse').parent().removeClass("active");
+    }
+
+    if (!link_form.is(":visible"))
+    {
+      link_form.fadeIn();
+      $(this).parent().attr("class", "active");
+    }
+  });
+
+})
+</script>

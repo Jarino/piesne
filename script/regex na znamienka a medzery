@@ -1,0 +1,1 @@
+@ahoj = String.new("šo ti jebe").mb_chars.normalize(:kd).gsub(/[^\x00-\x7F]/n, '').gsub(/ /, '_').to_s

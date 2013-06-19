@@ -1,0 +1,43 @@
+
+pokus - z fav: #<ActiveRecord::Relation:0x007f0370196c78>
+pokus - z fav: []
+pokus - z fav: []
+pokus - z fav: [#<Favourite id: 2, user_id: 3, song_id: 102, created_at: "2013-04-14 01:24:14", updated_at: "2013-04-14 01:24:14">]
+pokus - z fav: [#<Favourite id: 2, user_id: 3, song_id: 102, created_at: "2013-04-14 01:24:14", updated_at: "2013-04-14 01:24:14">]
+pokus - helpera: []
+pokus - helpera: []
+pokus - helpera: 
+pokus - helpera: 
+true
+pokus - helpera: 
+true
+pokus - helpera: 
+true
+pokus - helpera: 
+true
+pokus - helpera: 
+pokus - song_id: 
+pokus - user_id: 3
+true
+pokus - helpera: 
+pokus - song_id: 
+pokus - user_id: 3
+true
+pokus - helpera: 
+pokus - song_id: 70
+pokus - user_id: 3
+true
+pokus - helpera: 
+pokus - song_id: 130
+pokus - user_id: 3
+true
+pokus - helpera: 
+pokus - song_id: 130
+pokus - user_id: 3
+true
+pokus - helpera: 
+pokus - song_id: 102
+pokus - user_id: 3
+true
+true
+false

@@ -1,0 +1,57 @@
+<%= form_for(@song) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!-- jednotlive polia vo formulari -->
+
+  <div class="row">
+    <div class="span6">
+      <div class="field">
+        <label class="form-search"><span class="fixed-size">Meno pesničky:</span><%= f.text_field :title %></label>
+      </div>
+
+      <div class="field">
+        <label class="select"><span class="fixed-size">Región:</span><%= select_tag :region_id, options_from_collection_for_select(@regions, "id", 'name') %></label>
+      </div>
+
+      <div class="field">
+        <label class="select"><span class="fixed-size">Druh:</span><%= f.select :kind_id,  options_from_collection_for_select(@kinds, "id", 'name') %></label>
+      </div>
+
+
+    </div>
+
+
+    <div class="span6">
+      <%= f.fields_for :verses do |v| %>
+        <label class="form-search">Prvá sloha (ďalšie slohy je možné pridávať po vytvorení piesne)</label>
+        <%= v.text_area :text, :rows => 3 %>
+      <% end %>
+    </div>
+
+
+
+  </div>
+
+  <% if signed_in? %>
+  <div class="field">
+    <%= f.hidden_field :user_id,  :value => current_user.id %>
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit ' Pridaj ', :class=>'btn btn-large btn-info'%>
+  </div>
+
+
+
+<% end %>

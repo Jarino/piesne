@@ -1,0 +1,22 @@
+<div class="row span12"><h1><%= @kind.name %></h1></div>
+
+<div class="row span12"><p><%= @kind.description %></p></div>
+
+<div class="row span12" >
+	<h3>Vyhľadávanie v rámci druhu</h3>
+		<%= form_tag('search', :class => 'form-search') %>
+		<%= text_field_tag 'title' %>
+		<%= hidden_field_tag 'kind_id', @kind.id  %>
+		<%= submit_tag 'Hladaj dunco', :class => 'btn' %>
+</div>
+
+<div class="offset-top">
+<small>Piesne patriace do druhu <%= @kind.name %></small>
+<ul>
+<% @kind.songs.each do |s|  %>
+
+	<li><%= link_to s.title, s %></li>
+
+<% end %>
+</ul>
+</div>

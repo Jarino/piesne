@@ -1,0 +1,55 @@
+<div class="row span12">
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<% provide(:title, @user.first_name) %>
+<p>Kontaktný email: <%= @user.email %></p>
+<% if him?(@user.id) %>
+    <ul class="nav nav-tabs">
+        <li><%= link_to "Prehľad", @user %></li>
+        <li><%= link_to "Nevybavené hlásenia", unchecked_path(:id => @user.id) %></li>
+        <li class="active"><%= link_to "Vybavené hlásenia", checked_path(:id => @user.id) %></li>
+    </ul>
+<% else %>
+    <% if editor? %>
+    Editor
+    <% end %>
+<% end %>
+</div>
+
+
+<hr>
+<div class="row">
+	<div class="span12">
+	<p>Typy reportov</p>
+	<ol>
+		<li>Vulgárny, alebo inak urážajúci obsah</li>
+		<li>Nesprávne slová v niektorej zo slôh</li>
+		<li>Link nesúvisí s piesňou/nevhodný link</li>
+		<li>Pieseň je zaradená do zlého regiónu/druhu</li>
+	</ol>
+	</div>
+</div>
+
+<hr>
+<div class="row">
+<div class="span1">id reportu</div>
+<div class="span2">typ reportu</div>
+<div class="span3">popis</div>
+</div>
+<hr>
+<% @reports.each do |r| %>
+<div class="row">
+
+<div class="span1"><%= r.id %></div>
+<div class="span2"><%= r.report_type %></div>
+<div class="span3"><%= r.description %></div>
+<div class="span2"><%= link_to "link na pieseň", song_path(r.song_id) %></div>
+<div class="span3"><label class="form-search">
+	<%= form_tag("/reports/destroy", :method => :delete) do %>
+		<%= hidden_field_tag 'report_id', r.id %>
+		<%= hidden_field_tag 'user_id', @user.id %>
+		<%= submit_tag 'zmazať', :class => 'btn btn-danger' %>
+	<% end %>
+	</label>
+</div>
+</div>
+<% end %>

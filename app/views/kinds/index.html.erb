@@ -1,0 +1,5 @@
+<% @kinds.each do |k| %>
+
+<p><%= link_to k.name, k %> <small>(<%= k.songs.count %>)</small></p>
+
+<% end %>

@@ -1,0 +1,9 @@
+<h1>Zoznam pridaných regiónov</h1>
+
+
+
+<div>
+<% @regions.each do |r| %>
+<p><%= link_to r.name, r %> <small>(<%= r.songs.count %>)</small></p>
+<% end %>
+</div>

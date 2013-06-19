@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Text:</b>
+  <%= @verse.text %>
+</p>
+
+<p>
+  <b>Song:</b>
+  <%= @verse.song_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_verse_path(@verse) %> |
+<%= link_to 'Back', verses_path %>

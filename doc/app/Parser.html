@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Parser - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/parser.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-numeric-3F">::numeric?</a>
+    
+    <li><a href="#method-c-orava_all">::orava_all</a>
+    
+    <li><a href="#method-c-orava_single">::orava_single</a>
+    
+    <li><a href="#method-c-valid_page-3F">::valid_page?</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./AlphabetController.html">AlphabetController</a>
+  
+    <li><a href="./AppearanceHelper.html">AppearanceHelper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./BootstrapFlashHelper.html">BootstrapFlashHelper</a>
+  
+    <li><a href="./Coords.html">Coords</a>
+  
+    <li><a href="./Favourite.html">Favourite</a>
+  
+    <li><a href="./Kind.html">Kind</a>
+  
+    <li><a href="./KindsController.html">KindsController</a>
+  
+    <li><a href="./Link.html">Link</a>
+  
+    <li><a href="./LinksController.html">LinksController</a>
+  
+    <li><a href="./LinksHelper.html">LinksHelper</a>
+  
+    <li><a href="./MapController.html">MapController</a>
+  
+    <li><a href="./Occurence.html">Occurence</a>
+  
+    <li><a href="./Parser.html">Parser</a>
+  
+    <li><a href="./Region.html">Region</a>
+  
+    <li><a href="./RegionHelper.html">RegionHelper</a>
+  
+    <li><a href="./RegionsController.html">RegionsController</a>
+  
+    <li><a href="./SearchController.html">SearchController</a>
+  
+    <li><a href="./SearchHelper.html">SearchHelper</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="./Song.html">Song</a>
+  
+    <li><a href="./SongsController.html">SongsController</a>
+  
+    <li><a href="./SongsHelper.html">SongsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./Verse.html">Verse</a>
+  
+    <li><a href="./VersesController.html">VersesController</a>
+  
+    <li><a href="./VersesHelper.html">VersesHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Parser</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-numeric-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">numeric?</span><span
+            class="method-args">(num)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="numeric-3F-source">
+            <pre><span class="ruby-comment"># File app/models/parser.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">numeric?</span>(<span class="ruby-identifier">num</span>)
+        <span class="ruby-identifier">num</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[[:digit:]]/</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- numeric-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- numeric-3F-method -->
+
+    
+      <div id="method-c-orava_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">orava_all</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="orava_all-source">
+            <pre><span class="ruby-comment"># File app/models/parser.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">orava_all</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">id</span> <span class="ruby-keyword">in</span> <span class="ruby-value">6001</span><span class="ruby-operator">..</span><span class="ruby-value">8000</span><span class="ruby-comment">#6497</span>
+                <span class="ruby-identifier">orava_single</span>(<span class="ruby-identifier">id</span>)
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- orava_all-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- orava_all-method -->
+
+    
+      <div id="method-c-orava_single" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">orava_single</span><span
+            class="method-args">(id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="orava_single-source">
+            <pre><span class="ruby-comment"># File app/models/parser.rb, line 23</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">orava_single</span>(<span class="ruby-identifier">id</span>)
+                
+                <span class="ruby-comment">#6497</span>
+
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;spracuvam idcko: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>()
+                <span class="ruby-identifier">html</span> = <span class="ruby-constant">Curl</span>.<span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;http://pesnicky.orava.sk/index.php/piesne/#{id}&quot;</span>).<span class="ruby-identifier">body_str</span>
+                <span class="ruby-identifier">doc</span> = <span class="ruby-constant">Nokogiri</span>.<span class="ruby-constant">HTML</span>(<span class="ruby-identifier">html</span>)
+                
+                <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_page?</span>(<span class="ruby-identifier">doc</span>)
+                        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;skipping - wrong page&quot;</span>
+                        <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">'output'</span>, <span class="ruby-string">'a'</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;stranka bez textu, id -&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>() <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\n&quot;</span>)}
+                        <span class="ruby-keyword">return</span>
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-identifier">title</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;.art-Post h1&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">text</span>
+
+<span class="ruby-comment">#-----------------zistovanie prveho pismena ---------TOTO JE UZ ZBYTOCNE---------------------</span>
+                <span class="ruby-comment">#zistime si prve pismenko nazvu a podla toho zaradnime do kategorie podla pismen</span>
+
+                <span class="ruby-identifier">firstLetter</span> = <span class="ruby-constant">FirstLetter</span>.<span class="ruby-identifier">find_by_let</span>(<span class="ruby-identifier">title</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>)
+
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">firstLetter</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+                        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;vytvaram novu pismenkovu kategoriu&quot;</span>
+                        <span class="ruby-identifier">firstLetter</span> = <span class="ruby-constant">FirstLetter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:let</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">title</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>].<span class="ruby-identifier">downcase</span>)
+                        <span class="ruby-identifier">firstLetter</span>.<span class="ruby-identifier">save</span>
+                <span class="ruby-keyword">end</span>
+
+<span class="ruby-comment">#-----------------vyvaranie zaznamu v databaze a zaradenie do regionu ------------------------------</span>
+                <span class="ruby-identifier">song</span> = <span class="ruby-constant">Song</span>.<span class="ruby-identifier">find_by_title</span>(<span class="ruby-identifier">title</span>);
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">song</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+                        <span class="ruby-identifier">song</span> = <span class="ruby-constant">Song</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">title</span>, <span class="ruby-value">:title_norm</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">mb_chars</span>.<span class="ruby-identifier">normalize</span>(<span class="ruby-value">:kd</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[^\x00-\x7F]/</span>, <span class="ruby-string">''</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/ /</span>, <span class="ruby-string">'_'</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>, <span class="ruby-value">:first_letter_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">firstLetter</span>.<span class="ruby-identifier">id</span>)
+                        <span class="ruby-identifier">song</span>.<span class="ruby-identifier">save</span>
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;nepridal som&quot;</span>
+                        <span class="ruby-keyword">return</span>
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-comment"># zaradime piesen do random kategorie</span>
+                <span class="ruby-comment"># najpr zistime ci uz existuje alebo nie</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+                        <span class="ruby-keyword">begin</span>
+                        <span class="ruby-ivar">@region</span> = <span class="ruby-constant">Region</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">3</span>)
+                       <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span>
+                              <span class="ruby-ivar">@region</span> = <span class="ruby-constant">Region</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Trencin'</span>)
+                              <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">save</span>
+                       <span class="ruby-keyword">end</span>
+                       
+                       <span class="ruby-ivar">@occur</span> = <span class="ruby-constant">Occurence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:region_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:song_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">song</span>.<span class="ruby-identifier">id</span>)
+                        <span class="ruby-ivar">@occur</span>.<span class="ruby-identifier">save</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">%</span> <span class="ruby-value">3</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+                        <span class="ruby-keyword">begin</span>
+                        <span class="ruby-ivar">@region</span> = <span class="ruby-constant">Region</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">2</span>)
+                       <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span>
+                              <span class="ruby-ivar">@region</span> = <span class="ruby-constant">Region</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Klazdovce'</span>)
+                              <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">save</span>
+                       <span class="ruby-keyword">end</span>
+                       
+                       <span class="ruby-ivar">@occur</span> = <span class="ruby-constant">Occurence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:region_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:song_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">song</span>.<span class="ruby-identifier">id</span>)
+                        <span class="ruby-ivar">@occur</span>.<span class="ruby-identifier">save</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">%</span> <span class="ruby-value">4</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+                        <span class="ruby-keyword">begin</span>
+                        <span class="ruby-ivar">@region</span> = <span class="ruby-constant">Region</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>)
+                       <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span>
+                              <span class="ruby-ivar">@region</span> = <span class="ruby-constant">Region</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Jardovce'</span>)
+                              <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">save</span>
+                       <span class="ruby-keyword">end</span>
+                       
+                       <span class="ruby-ivar">@occur</span> = <span class="ruby-constant">Occurence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:region_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:song_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">song</span>.<span class="ruby-identifier">id</span>)
+                        <span class="ruby-ivar">@occur</span>.<span class="ruby-identifier">save</span>
+                <span class="ruby-keyword">end</span>   
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">%</span> <span class="ruby-value">5</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+                        <span class="ruby-keyword">begin</span>
+                        <span class="ruby-ivar">@region</span> = <span class="ruby-constant">Region</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">4</span>)
+                       <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span>
+                              <span class="ruby-ivar">@region</span> = <span class="ruby-constant">Region</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'Kostelec'</span>)
+                              <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">save</span>
+                       <span class="ruby-keyword">end</span>
+                       
+                       <span class="ruby-ivar">@occur</span> = <span class="ruby-constant">Occurence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:region_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:song_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">song</span>.<span class="ruby-identifier">id</span>)
+                        <span class="ruby-ivar">@occur</span>.<span class="ruby-identifier">save</span>
+                <span class="ruby-keyword">end</span>
+
+<span class="ruby-comment">#-------------------------- samotne kopirovanie textu zo stranky -----------------------------------</span>
+                <span class="ruby-comment"># pomocou tohto zistujeme ci je zaciatok slohy</span>
+                <span class="ruby-identifier">start</span> = <span class="ruby-keyword">true</span>
+                <span class="ruby-identifier">saved</span> = <span class="ruby-keyword">false</span>
+
+                <span class="ruby-comment"># jeden vers</span>
+                <span class="ruby-ivar">@line</span> = <span class="ruby-string">&quot;&quot;</span>
+
+                <span class="ruby-comment"># pole do ktoreho si ukladam slohy</span>
+                <span class="ruby-comment"># @verse = Array.new</span>
+
+                <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;.mj_song_body pre&quot;</span>).<span class="ruby-identifier">text</span>.<span class="ruby-identifier">each_line</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+
+                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">numeric?</span>(<span class="ruby-identifier">s</span>[<span class="ruby-value">0</span>,<span class="ruby-value">1</span>])
+                                        <span class="ruby-comment"># sme na zaciatku textu</span>
+                                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+                                                <span class="ruby-ivar">@line</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[[:digit:]]\./</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">strip</span>
+                                                <span class="ruby-identifier">start</span> = <span class="ruby-keyword">false</span>
+                                                <span class="ruby-keyword">next</span>
+                                        <span class="ruby-keyword">end</span>
+                                        <span class="ruby-comment"># nasli sme dalsiu slohu</span>
+                                        <span class="ruby-comment"># num += 1</span>
+
+                                        <span class="ruby-identifier">verse</span> = <span class="ruby-constant">Verse</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@line</span>, <span class="ruby-value">:song_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">song</span>.<span class="ruby-identifier">id</span>)
+                                        <span class="ruby-identifier">verse</span>.<span class="ruby-identifier">save</span>
+                                        <span class="ruby-identifier">saved</span> = <span class="ruby-keyword">true</span>
+
+                                        <span class="ruby-comment">#@verse &lt;&lt; @line.strip</span>
+                                        <span class="ruby-comment">#@line = &quot;&quot;</span>
+
+                                        <span class="ruby-identifier">start</span> = <span class="ruby-keyword">true</span>
+                                        <span class="ruby-keyword">redo</span>
+                                <span class="ruby-keyword">else</span>                
+                                        <span class="ruby-ivar">@line</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">s</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">saved</span>
+                        <span class="ruby-comment">#zrejme neboli ocislovane slohy</span>
+                        <span class="ruby-ivar">@line</span>.<span class="ruby-identifier">each_line</span>(<span class="ruby-string">&quot;\r\n\r&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sloha</span><span class="ruby-operator">|</span>
+
+                                <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;nasiel som song bez cislovanie sloh&quot;</span>
+                                <span class="ruby-identifier">verse</span> = <span class="ruby-constant">Verse</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sloha</span>, <span class="ruby-value">:song_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">song</span>.<span class="ruby-identifier">id</span>)
+                                <span class="ruby-identifier">verse</span>.<span class="ruby-identifier">save</span>
+
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div><!-- orava_single-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- orava_single-method -->
+
+    
+      <div id="method-c-valid_page-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_page?</span><span
+            class="method-args">(doc)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_page-3F-source">
+            <pre><span class="ruby-comment"># File app/models/parser.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">valid_page?</span>(<span class="ruby-identifier">doc</span>)
+
+        <span class="ruby-identifier">tab</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-node">&quot;#tab_3407&quot;</span>).<span class="ruby-identifier">text</span>.<span class="ruby-identifier">strip</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">tab</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;&quot;</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">title</span>() <span class="ruby-operator">==</span> <span class="ruby-string">&quot;404 - Chyba: 404&quot;</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- valid_page-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- valid_page-3F-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
